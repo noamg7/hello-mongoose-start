@@ -10,22 +10,22 @@ var express = require('express'),
 var todoSchema = new Schema({
   desc: {
     type: String,
-    require: true,
-  },
+    required: true
+  };
   completed: {
     type: Boolean,
-    require: true,
-  }
+    required: true
+
+  };
 });
 
 var Todo = mongoose.model('Todo', todoSchema);
-
-
-mongoose.connect('mongodb://localhost/todoApp')
+mongoose.connect('mongodb://localhost/todoApp');
 var port = process.env.PORT || 9000;
 
 server.use(express.static(path.join(__dirname,'public')));
 server.use(logger);
+server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: true}));
 
 server.get('/', function(req, res){
@@ -39,12 +39,11 @@ server.get('/api/todos', function(req, res){
   });
 });
 
-server.post('/api/todos', function(req, res){
+server.post('/api/todos', function(req,res){
   var desc = req.body.desc;
-  var completed = req.body.completed;
   var todoObj = {
     desc: desc,
-    completed: false,
+    completed: false
   };
   Todo.create(todoObj, function(err, todo){
     if(err) throw err;
@@ -55,6 +54,7 @@ server.post('/api/todos', function(req, res){
 server.put('/api/todos/:id', function(req, res){
   var id = req.params.id;
   var desc = req.body.desc;
+<<<<<<< HEAD
   var completed =  req.body.completed;
   var update = {
     desc: desc,
