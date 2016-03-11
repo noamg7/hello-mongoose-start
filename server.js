@@ -11,12 +11,12 @@ var todoSchema = new Schema({
   desc: {
     type: String,
     required: true
-  };
+  },
   completed: {
     type: Boolean,
     required: true
 
-  };
+  },
 });
 
 var Todo = mongoose.model('Todo', todoSchema);
@@ -54,7 +54,6 @@ server.post('/api/todos', function(req,res){
 server.put('/api/todos/:id', function(req, res){
   var id = req.params.id;
   var desc = req.body.desc;
-<<<<<<< HEAD
   var completed =  req.body.completed;
   var update = {
     desc: desc,
