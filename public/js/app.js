@@ -28,10 +28,14 @@ function TodoController($scope, $http){
     $scope.editingTodo = todo;
   }
   $scope.updateTodo = function(todo){
-    $http.put('/api/todos/'+todo.)
+    $http.put('/api/todos/'+todo._id, todo)
     .then(function(response){
-      $scope.editingTodo =
+      $scope.isEditing = false;
+      initTodos();
     })
+    .catch(function(err){
+      console.log(err);
+    });
   }
   function initTodos(){
     $http.get('/api/todos')
