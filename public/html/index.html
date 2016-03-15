@@ -13,7 +13,7 @@
       </form>
       <div ng-if='isEditing'>
         <input type="text" ng-model='editingTodo.desc'>
-        <button type="button" ng-click="updateTodo(editingTodo)">Save</button>
+        <button type="button" ng-click="updateTodo(editingTodo)">Update</button>
       </div>
       <ul>
         <li ng-repeat="todo in todos" class="alert alert-info">

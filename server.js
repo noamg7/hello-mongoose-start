@@ -5,21 +5,8 @@ var express = require('express'),
     Schema = mongoose.Schema,
     bodyParser = require('body-parser')
     server  = express();
+    Todo = require('./models/todo.model.js');
 
-//Todo Model
-var todoSchema = new Schema({
-  desc: {
-    type: String,
-    required: true
-  },
-  completed: {
-    type: Boolean,
-    required: true
-
-  },
-});
-
-var Todo = mongoose.model('Todo', todoSchema);
 mongoose.connect('mongodb://localhost/todoApp');
 var port = process.env.PORT || 9000;
 
