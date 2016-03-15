@@ -6,7 +6,7 @@ var express = require('express'),
     bodyParser = require('body-parser')
     server  = express();
     Todo = require('./models/todo.model.js');
-    TodoCtrl = require('./controllers/todo.controller.js')
+    TodoCtrl = require('./controllers/todo.controller.js');
 
 mongoose.connect('mongodb://localhost/todoApp');
 var port = process.env.PORT || 9000;
