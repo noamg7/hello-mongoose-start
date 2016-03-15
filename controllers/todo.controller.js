@@ -1,4 +1,4 @@
-var Todo = requre('../modles/todo.models.js');
+var Todo = require('../models/todo.model.js');
 var todoCtrl = {
   getAll: getAllTodos,
   create: createTodo,
@@ -23,6 +23,7 @@ function createTodo(req, res){
   Todo.create(todoObj, function(err, todo){
     if(err) throw err;
     res.json(todo);
+  });
 }
 
 function updateTodo(req, res){

@@ -22,8 +22,8 @@ server.get('/', function(req, res){
 
 server.get('/api/todos', TodoCtrl.getAll);
 server.post('/api/todos', TodoCtrl.create);
-server.put('/api/todos/:id', TodoCrl.update);
-server.delete('/api/todos/:id', TodoCrl.delete);
+server.put('/api/todos/:id', TodoCtrl.update);
+server.delete('/api/todos/:id', TodoCtrl.delete);
 
 server.listen(port, function(){
   console.log('Now listening on port ' + port);
