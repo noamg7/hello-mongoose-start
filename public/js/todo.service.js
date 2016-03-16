@@ -1,6 +1,6 @@
 angular.module('todoApp')
-      .factory("TodoService", TodoService);
-// .service and .factory do the same thing
+      .factory('TodoService', TodoService);
+
 TodoService.$inject = ['$http'];
 
 function TodoService($http){
@@ -8,18 +8,23 @@ function TodoService($http){
     read: getAllTodos,
     create: createTodo,
     update: updateTodo,
-    delete: deleteTodo,
+    delete: deleteTodo
   }
 
   function getAllTodos(){
     return $http.get('/api/todos')
-        .then(function(response){
-         return response.data;
-       });
-
+            .then(function(response){
+              return response.data;
+            });
   }
-  function createTodo(todoObj){}
-  function updateTodo(id, todoObj){}
-  function deleteTodo(id){}
+  function createTodo(todoObj){
+    return $http.post('/api/todos', todoObj);
+  }
+  function updateTodo(id, todoObj){
+    return $http.put('/api/todos/'+id, todoObj);
+  }
+  function deleteTodo(id){
+    return $http.delete('/api/todos/'+id);
+  }
 
 }
